@@ -1,0 +1,26 @@
+#welcometext {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 200px;
+  position: relative;
+  border: 1px solid grey;
+}
+
+#buttons {
+  border-radius: 16px;
+  text-align: center;
+}
+
+.button {
+  padding: 10px 20px;
+  border-radius: 6px;
+  border-color: grey;
+  color: white;
+  background-color: lightgrey;
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: orange;
+
+}
