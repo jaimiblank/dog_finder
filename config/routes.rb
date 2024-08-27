@@ -11,9 +11,9 @@ Rails.application.routes.draw do
   # root "pages#home"
 
   get '/dogs', to: 'dogs#index'
+  get '/dogs/new', to: 'dogs#new'
   get '/dogs/:id', to: 'dogs#show'
   get '/dogs/:id/bookings/new', to: 'bookings#new'
-  get '/dogs/new', to: 'dogs#new'
   post '/dogs/:id/bookings', to: 'bookings#create'
   delete '/dogs/:id/bookings', to: 'bookings#destroy'
   delete '/dogs/:id', to: 'dogs#destroy'
