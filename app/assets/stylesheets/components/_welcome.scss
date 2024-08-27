@@ -1,10 +1,63 @@
-#welcometext {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  height: 200px;
-  position: relative;
-  border: 1px solid grey;
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  #welcometext {
+    height: 300px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    border: 1px solid grey;
+  }
 }
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  #welcometext {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    border: 1px solid grey;
+    height: 300px;
+  }
+}
+
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  #welcometext {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 200px;
+    position: relative;
+    border: 1px solid grey;
+  }
+}
+
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  #welcometext {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 180px;
+    position: relative;
+    border: 1px solid grey;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  #welcometext {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 150px;
+    position: relative;
+    border: 1px solid grey;
+  }
+}
+
+
+
 
 #buttons {
   border-radius: 16px;
