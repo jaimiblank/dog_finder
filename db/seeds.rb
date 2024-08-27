@@ -1,6 +1,6 @@
 puts "Dogs DB will be deleted..."
 
-Dogs.destroy_all
+Dog.destroy_all
 
 puts "Creating Dogs DB..."
 
