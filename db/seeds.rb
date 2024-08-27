@@ -22,25 +22,25 @@ pug = Dog.create!(name: "Buddy", breed: "Pug", age: 6, bio: "Meet Buddy, a tail-
 puli = Dog.create!(name: "Stoner", breed: "Puli", age: 4, bio: "Here's Stoner, the gentle soul with puppy eyes.", user: su)
 shepherd = Dog.create!(name: "G", breed: "Shepherd", age: 5, bio: "This is Shepherd, the little pup with a big personality.", user: su)
 
-# beagle.images.attach(io: File.open(Rails.root.join('app/assets/images/beagle.jpg')),
-# filename: 'beagle.jpg')
-# akita.images.attach(io: File.open(Rails.root.join('app/assets/images/akita.jpg')),
-# filename: 'akita.jpg')
-# dackel.images.attach(io: File.open(Rails.root.join('app/assets/images/dackel.jpg')),
-# filename: 'dackel.jpg')
-# husky.images.attach(io: File.open(Rails.root.join('app/assets/images/husky.jpg')),
-# filename: 'husky.jpg')
-# labrador.images.attach(io: File.open(Rails.root.join('app/assets/images/labrador.jpg')),
-# filename: 'labrador.jpg')
-# pekingese.images.attach(io: File.open(Rails.root.join('app/assets/images/pekingese.jpeg')),
-# filename: 'pekingese.jpeg')
-# pitbull.images.attach(io: File.open(Rails.root.join('app/assets/images/pitbull.jpg')),
-# filename: 'pitbull.jpg')
-# pug.images.attach(io: File.open(Rails.root.join('app/assets/images/pug.png')),
-# filename: 'pug.png')
-# puli.images.attach(io: File.open(Rails.root.join('app/assets/images/puli.jpeg')),
-# filename: 'puli.jpeg')
-# shepherd.images.attach(io: File.open(Rails.root.join('app/assets/images/shepherd.jpg')),
-# filename: 'shepherd.jpg')
+beagle.images.attach(io: File.open(Rails.root.join('app/assets/images/beagle.jpg')),
+filename: 'beagle.jpg')
+akita.images.attach(io: File.open(Rails.root.join('app/assets/images/akita.jpg')),
+filename: 'akita.jpg')
+dackel.images.attach(io: File.open(Rails.root.join('app/assets/images/dackel.jpeg')),
+filename: 'dackel.jpeg')
+husky.images.attach(io: File.open(Rails.root.join('app/assets/images/husky.jpg')),
+filename: 'husky.jpg')
+labrador.images.attach(io: File.open(Rails.root.join('app/assets/images/labrador.jpg')),
+filename: 'labrador.jpg')
+pekingese.images.attach(io: File.open(Rails.root.join('app/assets/images/pekingese.jpeg')),
+filename: 'pekingese.jpeg')
+pitbull.images.attach(io: File.open(Rails.root.join('app/assets/images/pitbull.jpg')),
+filename: 'pitbull.jpg')
+pug.images.attach(io: File.open(Rails.root.join('app/assets/images/pug.png')),
+filename: 'pug.png')
+puli.images.attach(io: File.open(Rails.root.join('app/assets/images/puli.jpeg')),
+filename: 'puli.jpeg')
+shepherd.images.attach(io: File.open(Rails.root.join('app/assets/images/shepherd.jpg')),
+filename: 'shepherd.jpg')
 
 puts "Creating of 10 Dogs in DB done..."
