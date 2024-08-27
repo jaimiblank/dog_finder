@@ -1,1 +1,29 @@
-welcome to the dogs index page
+<h1>Listing All Dogs</h1>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Breed</th>
+      <th>Age</th>
+      <th>Bio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @dogs.each do |dog| %>
+      <tr>
+        <td><%= dog.id %></td>
+        <td><%= dog.name %></td>
+        <td><%= dog.breed %></td>
+        <td><%= dog.age %></td>
+         <td><%= dog.bio%></td>
+        <td>
+          <%= link_to 'Show', dog_path(dog), class: 'btn btn-info' %>
+          <%= link_to 'Edit', edit_dog_path(dog), class: 'btn btn-warning' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
