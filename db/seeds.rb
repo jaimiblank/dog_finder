@@ -37,3 +37,8 @@ shepherd.images.attach(io: File.open(Rails.root.join('app/assets/images/shepherd
 filename: 'shepherd.jpg')
 
 puts "Creating of 10 Dogs in DB done..."
+
+manfred = User.create(bio: "Hey i am Manfred, a local Breeder for huskys, pitbulls and beagles")
+su = User.create(bio: "Hey i am Su, and i am looking for a dog")
+
+puts "Creating of 2 Users in DB done..."
