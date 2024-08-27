@@ -1,1 +1,8 @@
-welcome to the new dog page, create a profile for your dog here
+  <h3>Create a profile for your dog to help him find new human friends</h3>
+        <%= simple_form_for @dog do |f| %>
+          <%= f.input :name, placeholder: 'Spot' %>
+          <%= f.input :breed %>
+          <%= f.input :age %>
+          <%= f.input :bio %>
+          <%= f.submit class: 'btn btn-flat' %>
+        <% end %>

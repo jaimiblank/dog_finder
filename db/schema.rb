@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_26_143429) do
     t.string "breed"
     t.integer "age"
     t.text "bio"
-    t.bigint "user_id"
+    t.bigint "user_id_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_dogs_on_user_id"
