@@ -3,6 +3,7 @@ puts "Dogs DB will be deleted..."
 Dog.destroy_all
 User.destroy_all
 
+
 manfred = User.create!(bio: "Hey i am Manfred, a local Breeder for huskys, pitbulls and beagles", email: "manfred@somewhere.com", password: "123456")
 su = User.create!(bio: "Hey i am Su, and i am looking for a dog", email: "su@somewhere.com", password: "654321")
 
