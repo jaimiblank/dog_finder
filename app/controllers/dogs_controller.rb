@@ -4,6 +4,7 @@ class DogsController < ApplicationController
   end
 
   def show
+    @dog = Dog.find(params[:id])
   end
 
   def new
@@ -23,6 +24,10 @@ class DogsController < ApplicationController
     @dog = Dog.find(params[:id])
     @dog.destroy
     redirect_to dogs_path
+  end
+
+  def image
+    ActionController::Base.helpers.asset_path('dog_image.jpg')
   end
 
   private
