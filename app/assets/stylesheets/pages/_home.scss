@@ -1,84 +1,57 @@
 // Specific CSS for your home-page
-.container{
-  padding: 50px 50px;
+body {
+  margin: 0;
 }
 
 .bodywrap{
   background-image: url("https://rundawg.com//wp-content/uploads/2021/07/jurgen-latzke-ApIsl5g5SCE-unsplash-1-1024x608.jpg");
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
   height: 100vh;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-  #welcometext {
-    height: 300px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    position: relative;
-  }
+.container{
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-  #welcometext {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    position: relative;
-    height: 300px;
-  }
+#welcometext{
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  padding: 20px;
+
+  margin-bottom: 20px;
 }
 
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-  #welcometext {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    height: 200px;
-    position: relative;
-  }
-}
-
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-  #welcometext {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    height: 180px;
-    position: relative;
-  }
-}
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-  #welcometext {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    height: 150px;
-    position: relative;
-  }
-}
 
 
 #buttons {
   border-radius: 16px;
   text-align: center;
+  margin-top: 20px;
 }
 
 .button {
+  display: inline-block;
   padding: 10px 20px;
   border-radius: 6px;
-  border-color: grey;
+  border: 1px solid grey;
   color: white;
   background-color: lightgrey;
-  text-decoration: none;
 }
 
 .button:hover {
   background-color: orange;
+}
 
+.button a {
+  text-decoration: none;
 }
