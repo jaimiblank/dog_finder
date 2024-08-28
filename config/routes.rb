@@ -18,8 +18,15 @@ Rails.application.routes.draw do
   # post '/dogs/:id/bookings', to: 'bookings#create'
   # delete '/dogs/:id/bookings', to: 'bookings#destroy'
   # delete '/dogs/:id', to: 'dogs#destroy'
+  # get '/bookings', to: 'bookings#index'
 
   resources :dogs, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
-    resources :bookings, only: [:new, :create, :destroy, :show, :index]
+    resources :bookings, only: [:new, :create, :destroy]
   end
+  resources :users, only: [] do
+    resources :bookings, only: [:index]
+  end
+
+
+
 end

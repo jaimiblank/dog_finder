@@ -18,10 +18,8 @@ class BookingsController < ApplicationController
     @booking.dog = @dog
     @booking.user = current_user
     if @booking.save
-      raise
-      redirect_to @booking, notice: 'Booking was successfully created.'
+      redirect_to booking_path(@booking), notice: 'Booking was successfully created.'
     else
-      raise
       redirect_to dogs_path
     end
   end
