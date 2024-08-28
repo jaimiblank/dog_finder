@@ -1,7 +1,12 @@
-dog show page
 <h1><%= @dog.name %></h1>
-<h1><%= @dog.age %></h1>
-<h1><%= @dog.breed %></h1>
-<h1><%= @dog.bio  %></h1>
+<h2>Age: <%= @dog.age %> years</h2>
+<h2>Breed: <%= @dog.breed %></h2>
+<p><%= @dog.bio %></p>
 
-<%= @dog.images %>
+<% if @dog.images.attached? %>
+  <% @dog.images.each do |image| %>
+    <%= image_tag image.variant(resize_to_limit: [500, 500]).processed, alt: "#{@dog.name} image" %>
+  <% end %>
+<% else %>
+  <p>No images available</p>
+<% end %>
