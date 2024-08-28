@@ -9,8 +9,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "pages#home"
-  resources :dogs, only: [:index]
-  #get '/dogs', to: 'dogs#index'
+  #resources :dogs, only: [:index]
+  get '/dogs', to: 'dogs#index'
   get '/dogs/new', to: 'dogs#new'
   get '/dogs/:id', to: 'dogs#show', as: 'dog'
   get '/dogs/:id/bookings/new', to: 'bookings#new'
