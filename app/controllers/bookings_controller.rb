@@ -1,4 +1,11 @@
 class BookingsController < ApplicationController
+  def index
+    @bookings = Booking.all
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
+  end
 
   def new
     @booking = Booking.new
@@ -6,20 +13,13 @@ class BookingsController < ApplicationController
   end
 
   def create
-    raise
-    #booking need
-    #user
-    #dog
-
-    #booking.new
-    #to that booking assign a dog and a user
-    #save that booking
-    
     @booking = Booking.new(booking_params)
+    @booking.user = current_user
+    @booking.dog = Dog.find(params[:dog_id])
     if @booking.save
-      redirect_to @booking, notice: 'Booking was successfully created.'
+      redirect_to dog_booking_path(@booking.dog, @booking.user), notice: 'Booking was successfully created.'
     else
-      render :new
+      render :new, notice: 'Booking was not created.'
     end
   end
 

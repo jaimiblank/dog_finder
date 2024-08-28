@@ -20,6 +20,6 @@ Rails.application.routes.draw do
   # delete '/dogs/:id', to: 'dogs#destroy'
 
   resources :dogs, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
-    resources :bookings, only: [:new, :create, :destroy]
+    resources :bookings, only: [:new, :create, :destroy, :show, :index]
   end
 end
