@@ -1,6 +1,7 @@
 welcome to the booking page! You're creating a booking for <%= @dog.name %>
-<%= simple_form_for @booking do |f| %>
-  <%=  f.input :start_date, as: :string, input_html: { data: { controller: "date_picker" } } %>
-  <%= f.input :end_date, as: :string, input_html: { data: { controller: "date_picker" } }  %>
+
+<%= simple_form_for [@dog,@booking] do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
   <%= f.button :submit %>
-<% end %>
+  <% end %>

@@ -2,10 +2,19 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-    @dog = params[:dog_id]
+    @dog = Dog.find(params[:dog_id])
   end
 
   def create
+    raise
+    #booking need
+    #user
+    #dog
+
+    #booking.new
+    #to that booking assign a dog and a user
+    #save that booking
+    
     @booking = Booking.new(booking_params)
     if @booking.save
       redirect_to @booking, notice: 'Booking was successfully created.'
@@ -23,7 +32,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:name, :date, :time, :location)
+    params.require(:booking).permit(:start_date, :end_date)
   end
 
 end
