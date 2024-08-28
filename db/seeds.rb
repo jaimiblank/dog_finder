@@ -26,7 +26,7 @@ Dog.create!(
   age: 4,
   bio: "Alive, the most playful pup you'll ever see!",
   user: manfred,
-  image: Rails.root.join('app/assets/images/akita.jpg').open
+  # image: Rails.root.join('app/assets/images/akita.jpg').open
 )
 
 Dog.create!(
