@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   # root "pages#home"
 
 
+
   # get '/dogs', to: 'dogs#index'
   # get '/dogs/new', to: 'dogs#new', as: 'new_dog'
   # get '/dogs/:id', to: 'dogs#show', as: 'dog'
@@ -22,5 +23,4 @@ Rails.application.routes.draw do
   resources :dogs, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :bookings, only: [:new, :create, :destroy]
   end
-
 end
