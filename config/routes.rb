@@ -11,11 +11,15 @@ Rails.application.routes.draw do
   # root "pages#home"
 
 
-  get '/dogs', to: 'dogs#index'
-  get '/dogs/new', to: 'dogs#new', as: 'new_dog'
-  get '/dogs/:id', to: 'dogs#show', as: 'dog'
-  get '/dogs/:id/bookings/new', to: 'bookings#new', as: 'bookings'
-  post '/dogs/:id/bookings', to: 'bookings#create'
-  delete '/dogs/:id/bookings', to: 'bookings#destroy'
-  delete '/dogs/:id', to: 'dogs#destroy'
+  # get '/dogs', to: 'dogs#index'
+  # get '/dogs/new', to: 'dogs#new', as: 'new_dog'
+  # get '/dogs/:id', to: 'dogs#show', as: 'dog'
+  # get '/dogs/:id/bookings/new', to: 'bookings#new', as: 'bookings'
+  # post '/dogs/:id/bookings', to: 'bookings#create'
+  # delete '/dogs/:id/bookings', to: 'bookings#destroy'
+  # delete '/dogs/:id', to: 'dogs#destroy'
+
+  resources :dogs, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+    resources :bookings, only: [:new, :create, :destroy]
+  end
 end
