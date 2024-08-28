@@ -27,6 +27,10 @@ class DogsController < ApplicationController
     redirect_to dogs_path
   end
 
+  def image
+    ActionController::Base.helpers.asset_path('dog_image.jpg')
+  end
+
   private
 
   def dog_params

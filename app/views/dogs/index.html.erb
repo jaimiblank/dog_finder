@@ -1,5 +1,6 @@
 <h1>Listing All Dogs</h1>
 
+<%= link_to "Add new", new_dog_path, class: "btn btn-info" %>
 
 <table class="table">
   <thead>
@@ -9,6 +10,7 @@
       <th>Breed</th>
       <th>Age</th>
       <th>Bio</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -18,7 +20,8 @@
         <td><%= dog.name %></td>
         <td><%= dog.breed %></td>
         <td><%= dog.age %></td>
-        <td><%= dog.bio%></td>
+        <td><%= dog.bio %></td>
+
         <td>
           <%= link_to 'Show', dog_path(dog), class: 'btn btn-info' %>
           <%# <%= link_to 'Edit', edit_dog_path(dog), class: 'btn btn-warning' %>
