@@ -1,8 +1,11 @@
+
+<div class = "centered-container ">
   <h3>Create a profile for your dog to help him find new human friends</h3>
-        <%= simple_form_for @dog do |f| %>
-          <%= f.input :name, placeholder: 'Spot' %>
-          <%= f.input :breed %>
-          <%= f.input :age %>
-          <%= f.input :bio %>
-          <%= f.submit class: 'btn btn-flat' %>
-        <% end %>
+  <%= simple_form_for @dog do |f| %>
+    <%= f.input :name, placeholder: 'Spot', label: 'Dog Name' %>
+    <%= f.input :breed, label: 'Breed' %>
+    <%= f.input :age, label: 'Age' %>
+    <%= f.input :bio, label: 'Biography' %>
+    <%= f.submit class: 'btn btn-flat' %>
+  <% end %>
+</div>

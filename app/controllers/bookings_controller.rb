@@ -1,4 +1,11 @@
 class BookingsController < ApplicationController
+  def index
+    @bookings = Booking.all
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
+  end
 
   def new
     @booking = Booking.new
@@ -17,13 +24,6 @@ class BookingsController < ApplicationController
       raise
       redirect_to dogs_path
     end
-    #booking need
-    #user
-    #dog
-
-    #booking.new
-    #to that booking assign a dog and a user
-    #save that booking
   end
 
   def destroy
