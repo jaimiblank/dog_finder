@@ -14,19 +14,22 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @dog = Dog.find(params[:dog_id])
+    @booking.dog = @dog
     @booking.user = current_user
-    @booking.dog = Dog.find(params[:dog_id])
     if @booking.save
-      redirect_to dog_booking_path(@booking.dog, @booking.user), notice: 'Booking was successfully created.'
+      raise
+      redirect_to @booking, notice: 'Booking was successfully created.'
     else
-      render :new, notice: 'Booking was not created.'
+      raise
+      redirect_to dogs_path
     end
   end
 
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to bookings_url, notice: 'Booking deleted.'
+    redirect_to new_dog_booking_path, notice: 'Booking deleted.'
   end
 
   private
