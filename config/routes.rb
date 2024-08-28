@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   # root "pages#home"
 
   get '/dogs', to: 'dogs#index', as: 'dog'
-  get '/dogs/new', to: 'dogs#new'
+  get '/dogs/new', to: 'dogs#new', as: 'new_dog'
   get '/dogs/:id', to: 'dogs#show'
   get '/dogs/:id/bookings/new', to: 'bookings#new'
   post '/dogs/:id/bookings', to: 'bookings#create'

@@ -1,18 +1,8 @@
-<div class="dog-show">
-  <%# <!-- Display actual dog's image if attached -->
-  <% if @dog.image.attached? %>
-   <%= @dog.image %>
+<h1><%= @dog.name %></h1>
+<% if @dog.image.attached? %>
+  <%= image_tag @dog.image, size: "300x200" %>
+<% end %>
 
-  <%# <% else %>
-    <!-- Fallback image or placeholder if no image is attached -->
-    <%# <img src="/assets/beagle.jpg" alt="Placeholder Dog Image"> %>
-  <%# <% end %>
-
-  <!-- Display dog's details -->
-  <div>
-    <p><strong>Name:</strong> <%= @dog.name %></p>
-    <p><strong>Age:</strong> <%= @dog.age %></p>
-    <p><strong>Breed:</strong> <%= @dog.breed %></p>
-    <p><strong>Bio:</strong> <%= @dog.bio %></p>
-  </div>
-</div>
+<p>Breed: <%= @dog.breed %></p>
+<p>Age: <%= @dog.age %></p>
+<p>Bio: <%= @dog.bio %></p>

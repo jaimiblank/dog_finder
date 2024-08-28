@@ -1,16 +1,15 @@
 footer {
-  background-color: rgb(245, 230, 230);
-  padding: 20px;
+  background-color: #f8f9fa;
+  padding: 1rem;
   text-align: center;
-  border-top: 1px solid rgb(245, 230, 230);
+  border-top: 1px solid #e9ecef;
 
   p {
     margin: 0;
-    font-size: 14px;
   }
 
   a {
-    color: #a2cbf6;
+    color: #007bff;
     text-decoration: none;
 
     &:hover {
