@@ -1,4 +1,4 @@
 class Booking < ApplicationRecord
-  belongs_to :dog
-  belongs_to :user
+  belongs_to :dog, dependent: :destroy
+  belongs_to :user, dependent: :destroy
 end
