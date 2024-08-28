@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get '/dogs', to: 'dogs#index'
   get '/dogs/new', to: 'dogs#new'
   get '/dogs/:id', to: 'dogs#show', as: 'dog'
-  get '/dogs/:id/bookings/new', to: 'bookings#new'
+  get '/dogs/:id/bookings/new', to: 'bookings#new', as: 'bookings'
   post '/dogs/:id/bookings', to: 'bookings#create'
   delete '/dogs/:id/bookings', to: 'bookings#destroy'
   delete '/dogs/:id', to: 'dogs#destroy'
