@@ -1,6 +1,8 @@
 <h1>Listing All Dogs</h1>
 
-<%= link_to "Add new 🐾", new_dog_path, class: "btn btn-info" %>
+<div class="d-flex justify-content-end">
+  <%= link_to "Add new 🐾", new_dog_path, class: "btn btn-info" %>
+</div>
 
 <table class="table">
   <thead>
@@ -16,7 +18,7 @@
   <tbody>
     <% @dogs.each do |dog| %>
       <tr>
-        <td><%= dog.id %></td>
+        <td><%= image_tag dog.image, class: "avatar", alt: "#{dog.name}'s avatar" if dog.image.attached? %></td>
         <td><%= dog.name %></td>
         <td><%= dog.breed %></td>
         <td><%= dog.age %></td>
