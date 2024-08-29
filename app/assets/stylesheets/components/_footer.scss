@@ -1,19 +1,38 @@
-footer {
-  background-color: rgb(255, 216, 125);
-  padding: 1rem;
-  text-align: center;
-  border-top: 1px solid #e9ecef;
+.footer {
+  width: 100%;
+  background-color: #f95815; // Background color for the footer
+  color: #fff;
+  margin-bottom: 0px;// Text color
 
-  p {
-    margin: 0;
+  .footer-social {
+    background-color: #f95815; // Match the footer background color
+    .btn {
+      background-color: #54456b; // Social button background color
+      color: #fff; // Social button icon color
+      border: none;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+
+      &:hover {
+        background-color: #3e3a5e; // Darker shade on hover
+        transform: scale(1.1); // Slightly enlarge on hover
+      }
+
+      i {
+        font-size: 24px; // Size of the social icons
+      }
+    }
   }
 
-  a {
-    color: #007bff;
-    text-decoration: none;
+  .footer-bottom {
+    background-color: rgba(0, 0, 0, 0.2); // Slightly transparent background for the bottom section
+    color: #fff; // Text color
+    a {
+      color: #fff; // Link color
+      text-decoration: none;
 
-    &:hover {
-      text-decoration: underline;
+      &:hover {
+        text-decoration: underline; // Underline link on hover
+      }
     }
   }
 }

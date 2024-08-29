@@ -1,14 +1,97 @@
-.dog-photo{
-  height: auto;
-  width: 300px;
+.row.wrapper {
+  margin: 0;
+  padding: 20px;
+  background-color: #f8f9fa; // Light background for the wrapper
 }
 
-.dog{
+.dashboard-nav {
   display: flex;
-  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+
+  .btn-info {
+    margin-right: 10px;
+    background-color: #00ff44; // Bootstrap primary color
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+    &:hover {
+      background-color: #ea2b16; // Darker shade on hover
+      transform: translateY(-2px); // Slight lift effect
+    }
+  }
 }
 
-.wrap{
-  display:flex;
-  flexdirection: column;
+.wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.dogs-wrap,
+.booking-wrap {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  flex: 1;
+  min-width: 280px; // Ensure columns have a minimum width on small screens
+
+  h2 {
+    margin-top: 0;
+    color: #343a40;
+  }
+
+  .dog {
+    margin-top: 20px;
+
+    .dog-photo {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      object-fit: cover;
+    }
+
+    p {
+      margin: 0;
+      color: #6c757d;
+    }
+
+    a {
+      display: block;
+      margin-bottom: 10px;
+      color: #ea2b16;
+      font-weight: bold;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .list-group-item {
+    border: none;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+.booking-wrap {
+  .booking {
+    p {
+      color: #6c757d;
+    }
+  }
 }

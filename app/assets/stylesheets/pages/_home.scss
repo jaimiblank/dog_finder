@@ -83,3 +83,43 @@ h{
 .btn-secondary {
   margin-top: 1rem;
 }
+
+.puppy-wrap {
+  padding: 20px;
+  background-color: #f8f9fa;
+
+  .puppy-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; // Add space between items
+
+    .dog-item {
+      background-color: #ffffff;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        transform: scale(1.05); // Slightly enlarge on hover
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Add shadow on hover
+      }
+    }
+  }
+
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .rounded {
+    border-radius: 10px; // Rounded corners for images
+  }
+
+  .shadow {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .font-weight-bold {
+    font-weight: bold;
+  }
+}

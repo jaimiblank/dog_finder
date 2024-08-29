@@ -1,0 +1,54 @@
+.slider_bg_1{
+  background: asset_url("banner.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.slider_area{
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center; // Center vertically
+  justify-content: center; // Center horizontally
+  overflow: hidden;
+  .single_slider{
+      height: 725px;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+
+      .slider_text{
+          position: relative;
+          z-index: 6;
+          h3{
+           color: #ffffff;
+           font-size: 40px;
+           font-weight: 200;
+           margin-bottom: -14px;
+           line-height: 85px;
+           span{
+              font-weight: 800;
+           }
+
+          }
+          p{
+              font-size: 16px;
+              font-weight: 400;
+              color: #ffffff;
+              margin-bottom: 0;
+              margin-top: 0;
+              line-height: 32px;
+              display: inline-block;
+              margin-bottom: 50px;
+              margin-top: 12px;
+
+          }
+      }
+  }
+  .dog_thumb {
+    z-index: 10;
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  }
