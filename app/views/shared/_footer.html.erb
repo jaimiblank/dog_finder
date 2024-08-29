@@ -1,5 +1,5 @@
 <!-- app/views/layouts/_footer.html.erb -->
 <footer>
   <p>&copy; <%= Time.now.year %> Dog Finder. All rights reserved.</p>
-  <p><a href="">Login</a> | <a href="">Register</a></p>
+  <p><%= link_to "Login",  new_user_session_path %> | <%= link_to "Register", new_user_registration_path %></p>
 </footer>

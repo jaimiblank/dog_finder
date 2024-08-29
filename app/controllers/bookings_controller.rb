@@ -18,11 +18,10 @@ class BookingsController < ApplicationController
     @booking.dog = @dog
     @booking.user = current_user
     if @booking.save
-      raise
-      redirect_to @booking, notice: 'Booking was successfully created.'
+      redirect_to '#', notice: 'Booking was successfully created.'
+      # LINK for redirect hast to be add -> Dashboard
     else
-      raise
-      redirect_to dogs_path
+      render :new, status: :unprocessable_entity
     end
   end
 
