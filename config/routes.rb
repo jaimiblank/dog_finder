@@ -26,10 +26,5 @@ Rails.application.routes.draw do
   resources :dogs, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :bookings, only: [:new, :create, :destroy]
   end
-  resources :users, only: [] do
-    resources :bookings, only: [:index]
-  end
-
-
 
 end
