@@ -11,9 +11,26 @@
 
 
   <div class="container col-s-3 col-8" id="buttons">
-    <%= link_to "Add your dog", new_dog_path, class: "btn btn-info" %>
-    <%= link_to 'Show the dogs', dogs_path, class: 'btn btn-info' %>
-
+    <%= link_to "Sign in", new_user_session_path, class: "btn btn-info" %>
+    <%= link_to 'Register', new_user_registration_path, class: 'btn btn-info' %>
   </div>
 
+
+
+</div>
+<div class="puppy-wrap">
+  <div class="">
+  <h2>Here are some of our Friends you can find here:</h2>
+  </div>
+  <div class="puppy-preview d-flex flex-wrap">
+
+      <% @dogs.each do |dog| %>
+        <div class="dog-item m-2 text-center">
+          <% if dog.image.attached? %>
+            <%= image_tag dog.image, size: "300x200", class: "img-fluid rounded" %>
+          <% end %>
+          <p class="mt-2"><%= dog.name %></p>
+        </div>
+      <% end %>
+  </div>
 </div>
