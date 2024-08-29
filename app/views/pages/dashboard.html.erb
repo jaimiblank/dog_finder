@@ -56,7 +56,7 @@
 
             <h3>All Bookings</h3>
             <% @bookings.each do |booking| %>
-              <li class="list-group-item">
+              <li class="list-group-item <%= booking.status == 'approved' ? 'bg-light-green' : 'bg-light-orange' %>">
                 Dog: <%= link_to booking.dog.name, dog_path(booking.dog) %>
                 <br>
                 Status: <%= booking.status.capitalize %>
