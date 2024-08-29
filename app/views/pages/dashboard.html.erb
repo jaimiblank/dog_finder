@@ -66,6 +66,10 @@
                 <% end %>
                 <br>
                 <%# Days: <%= (booking.end_date - booking.start_date).to_i %>
+                <br>
+                <%= form_with(url: dog_booking_path(booking.dog, booking), method: :delete, data: { turbo_confirm: "Are you sure you want to delete this booking?" }) do |f| %>
+                  <%= f.submit "Delete Booking", class: "btn btn-danger" %>
+                <% end %>
               </li>
             <% end %>
           <% else %>
