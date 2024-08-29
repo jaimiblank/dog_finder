@@ -24,6 +24,7 @@ h{
   margin: 0 auto;
   padding: 20px;
   text-align: center
+
 }
 
 #welcometext{
@@ -57,4 +58,28 @@ h{
 
 .button a {
   text-decoration: none;
+}
+/* app/assets/stylesheets/application.scss */
+
+.container {
+  margin-top: 2rem;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.display-4 {
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+
+.lead {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+.btn-secondary {
+  margin-top: 1rem;
 }

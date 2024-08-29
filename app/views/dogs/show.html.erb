@@ -1,26 +1,27 @@
-<div class="container">
-  <!-- Book Button -->
-  <div class="text-center mb-4">
-  <%= link_to 'Book', new_dog_booking_path(@dog), class: 'btn btn-info btn-lg' %>
 
-  </div>
+<!-- app/views/dogs/show.html.erb -->
 
-
-  <!-- Dog Details -->
+<div class="container mt-4">
   <div class="row">
+    <!-- Dog Image -->
     <div class="col-md-4">
       <% if @dog.image.attached? %>
         <%= image_tag @dog.image, size: "300x200", class: "img-fluid rounded" %>
+      <% else %>
+        <p>No image available</p>
       <% end %>
     </div>
+
+    <!-- Dog Details -->
     <div class="col-md-8">
       <h1 class="display-4"><%= @dog.name %></h1>
       <p class="lead">Breed: <%= @dog.breed %></p>
       <p class="lead">Age: <%= @dog.age %></p>
       <p class="lead">Bio: <%= @dog.bio %></p>
+      <p class="lead">Owner: <%= @dog.user.bio %></p>
+
+    <%= link_to 'Book', new_dog_booking_path(@dog), class: 'btn btn-info btn-lg' %>
+
     </div>
   </div>
 </div>
-
-
-<%= link_to "back", :back %>
