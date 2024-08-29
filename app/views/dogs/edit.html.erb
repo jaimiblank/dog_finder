@@ -1,0 +1,19 @@
+<div class="centered-container">
+  <h3>Update your dog's profile</h3>
+  <%= simple_form_for @dog, url: dog_path(@dog), method: :patch do |f| %>
+    <%= f.input :name, placeholder: 'Spot', label: 'Dog Name' %>
+    <%= f.input :breed, label: 'Breed' %>
+    <%= f.input :age, label: 'Age' %>
+    <%= f.input :bio, label: 'Biography' %>
+    <%= f.input :image, as: :file, label: 'Dog Photo' %>
+
+    <% if @dog.image.attached? && @dog.image.persisted? %>
+      <%= image_tag @dog.image, class: 'dog-image-preview' %>
+      <%= button_to "Delete Dog Image", delete_image_dog_booking_path(@dog), method: :delete, data: { turbo_confirm: "Are you sure you want to delete this image?" }, class: "btn btn-danger mt-2" %>
+    <% else %>
+      <p>No image currently uploaded.</p>
+    <% end %>
+
+    <%= f.submit 'Update Dog', class: 'btn btn-primary' %>
+  <% end %>
+</div>

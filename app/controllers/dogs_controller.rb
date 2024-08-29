@@ -33,6 +33,12 @@ class DogsController < ApplicationController
     redirect_to dashboard_path, notice: 'Dog was successfully deleted.'
   end
 
+  def delete_image
+    @dog = Dog.find(params[:id])
+    @dog.image.purge
+    redirect_to edit_dog_path(@dog), notice: 'Image was successfully deleted.'
+  end
+
   def image
     ActionController::Base.helpers.asset_path('dog_image.jpg')
   end
