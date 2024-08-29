@@ -1,6 +1,6 @@
 puts "Dogs DB will be deleted..."
 
-
+Booking.destroy_all
 Dog.destroy_all
 User.destroy_all
 
