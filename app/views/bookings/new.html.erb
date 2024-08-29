@@ -1,7 +1,9 @@
-welcome to the booking page! You're creating a booking for <%= @dog.name %>
+
+<%# welcome to the booking page! You're creating a booking for <%= @dog.name %>
 
 <%= simple_form_for [@dog,@booking] do |f| %>
   <%= f.input :start_date %>
   <%= f.input :end_date %>
-  <%= f.button :submit %>
+  <%= f.submit "book" %>
   <% end %>
+

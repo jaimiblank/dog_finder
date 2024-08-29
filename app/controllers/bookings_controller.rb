@@ -1,4 +1,11 @@
 class BookingsController < ApplicationController
+  def index
+    @bookings = Booking.all
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
+  end
 
   def new
     @booking = Booking.new
@@ -6,27 +13,22 @@ class BookingsController < ApplicationController
   end
 
   def create
-    raise
-    #booking need
-    #user
-    #dog
-
-    #booking.new
-    #to that booking assign a dog and a user
-    #save that booking
-    
     @booking = Booking.new(booking_params)
+    @dog = Dog.find(params[:dog_id])
+    @booking.dog = @dog
+    @booking.user = current_user
     if @booking.save
-      redirect_to @booking, notice: 'Booking was successfully created.'
+      redirect_to dashboard_path, notice: 'Booking was successfully created.'
+      # LINK for redirect hast to be add -> Dashboard
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to bookings_url, notice: 'Booking deleted.'
+    redirect_to new_dog_booking_path, notice: 'Booking deleted.'
   end
 
   private

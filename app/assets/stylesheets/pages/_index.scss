@@ -1,3 +1,4 @@
+
 /* app/assets/stylesheets/application.scss */
 
 /* Container for the main content */
@@ -78,3 +79,9 @@
   text-transform: uppercase; /* Uppercase text for headers */
   letter-spacing: 0.5px; /* Slightly increased letter spacing */
 }
+
+// Import page-specific CSS files here.
+@import "home";
+@import "dashboard";
+@import "new"
+
