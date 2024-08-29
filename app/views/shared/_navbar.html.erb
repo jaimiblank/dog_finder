@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon custom-navbar-height">
   <div class="container-fluid">
 
     <%= link_to "#", class: "navbar-brand" do %>
@@ -28,24 +28,24 @@
           <%# <li class="nav-item active">
             <%= link_to "Home", root_path, class: "nav-link" > </li> %>
           <li class="nav-item">
-            <%= link_to "Home", root_path, class: "nav-link" %>
+            <%= link_to "Home", root_path, class: "nav-link navbar-link" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
+          <li class="nav-item me-3">
+            <%= link_to "Dashboard", dashboard_path, class: "nav-link navbar-link" %>
           </li>
           <li class="nav-item dropdown">
-          <li class="nav-item active">
-           <%= link_to "Add your Dog", new_dog_path, class: "nav-link" %>
-
-          </li>
-
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Edit your Profile",  edit_user_registration_path, class: "dropdown-item" %>
-
-              <%= link_to "Edit your Dogs / NOT WORKING", '#', class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
-
+              <%= link_to edit_user_registration_path, class: "dropdown-item" do %>
+                <i class="fas fa-user-edit me-2"></i> Edit your Profile
+              <% end %>
+              <%= link_to '#', class: "dropdown-item" do %>
+                <i class="fas fa-dog me-2"></i> Edit your Dogs
+              <% end %>
+              <div class="dropdown-divider"></div>
+              <%= link_to destroy_user_session_path, class: "dropdown-item text-danger", data: {turbo_method: :delete} do %>
+                <i class="fas fa-sign-out-alt me-2"></i> Log out
+              <% end %>
             </div>
           </li>
         <% end %>

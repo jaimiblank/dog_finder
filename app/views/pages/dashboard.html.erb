@@ -1,84 +1,85 @@
 <div class="row wrapper">
+  <div class="dashboard-nav d-flex justify-content-center">
+     <%= link_to "Add your dog", new_dog_path, class: "btn btn-danger btn-lg mx-3 rounded-pill text-white" %>
+    <%= link_to 'Show the dogs', dogs_path, class: 'btn btn-danger btn-lg rounded-pill text-white' %>
+  </div>
 
-    <div class="dashboard-nav">
-     <%= link_to "Add your dog", new_dog_path, class: "btn btn-orange btn-lg mx-3" %>
-   <%= link_to 'Show the dogs', dogs_path, class: 'btn btn-orange btn-lg' %>
-    </div>
-
-    <div class="wrap">
-      <div class="dogs-wrap col-6">
-        <h2>My Dogs</h2>
-        <div class="dog">
-          <% @dogs.each do |dog|%>
-            <div class="dog-item">
-              <%= link_to dog.name, dog %>
-              <%= dog.breed %>
-              <%= dog.age %>
-              <%= dog.bio %>
+  <div class="wrap">
+    <div class="dogs-wrap col-6">
+      <h2>My Dogs</h2>
+      <div class="dog">
+        <% @dogs.each do |dog| %>
+          <div class="dog-item mb-4 pb-4 border-bottom">
+            <div class="mb-3">
+              <%= link_to dog.name, dog, class: "h5 text-decoration-none" %>
+              <p class="mb-1"><strong>Breed:</strong> <%= dog.breed %></p>
+              <p class="mb-1"><strong>Age:</strong> <%= dog.age %></p>
+              <p class="mb-3"><%= dog.bio %></p>
 
               <% if dog.image.attached? %>
-                <%= image_tag dog.image, class: "dog-photo" %>
+                <%= image_tag dog.image, class: "dog-photo img-fluid rounded mb-3" %>
               <% else %>
-                <%= image_tag "dogfoot.png", class: "dog-photo" %>
+                <%= image_tag "dogfoot.png", class: "dog-photo img-fluid rounded mb-3" %>
               <% end %>
-
-              <%= link_to "Edit Dog", edit_dog_path(dog), class: "btn btn-primary" %>
-              <%= button_to "Delete Dog", dog_path(dog), method: :delete, data: { turbo_confirm: "Are you sure you want to delete this dog?" }, class: "btn btn-danger" %>
             </div>
-          <% end %>
-        </div>
-      </div>
 
-      <div class="booking-wrap col-6">
-        <div class="booking">
-          <h2>Bookings</h2>
-          <% if @bookings.any? %>
-            <h3>Pending Bookings</h3>
-            <% @bookings.select { |b| b.status == 'pending' && b.dog.user == current_user }.each do |booking| %>
-              <li class="list-group-item">
-                Dog: <%= link_to booking.dog.name, dog_path(booking.dog) %>
-                <br>
-                Requester: <%= booking.user.email %>
-                <br>
-                Date:
-                <% if booking.start_date && booking.end_date %>
-                  <%= booking.start_date.strftime("%B %d, %Y") %> till <%= booking.end_date.strftime("%B %d, %Y") %>
-                <% else %>
-                  Not specified
-                <% end %>
-                <br>
-                <%# Days: <%= (booking.end_date - booking.start_date).to_i %>
-                <br>
-                <%= button_to "Approve", approve_dog_booking_path(booking.dog, booking), method: :patch, class: "btn btn-success", data: { turbo: false } %>
-                <%= button_to "Reject", dog_booking_path(booking.dog, booking), method: :delete, data: { turbo_confirm: "Are you sure you want to reject this booking?", turbo: false }, class: "btn btn-danger" %>
-              </li>
-            <% end %>
-
-            <h3>All Bookings</h3>
-            <% @bookings.each do |booking| %>
-              <li class="list-group-item <%= booking.status == 'approved' ? 'bg-light-green' : 'bg-light-orange' %>">
-                Dog: <%= link_to booking.dog.name, dog_path(booking.dog) %>
-                <br>
-                Status: <%= booking.status.capitalize %>
-                <br>
-                Date:
-                <% if booking.start_date && booking.end_date %>
-                  <%= booking.start_date.strftime("%B %d, %Y") %> till <%= booking.end_date.strftime("%B %d, %Y") %>
-                <% else %>
-                  Not specified
-                <% end %>
-                <br>
-                <%# Days: <%= (booking.end_date - booking.start_date).to_i %>
-                <br>
-                <%= button_to "Delete Booking", dog_booking_path(booking.dog, booking), method: :delete, data: { turbo_confirm: "Are you sure you want to delete this booking?" }, class: "btn btn-danger" %>
-              </li>
-            <% end %>
-          <% else %>
-            <p>No bookings available.</p>
-          <% end %>
-        </div>
+            <div class="mt-2">
+              <%= link_to edit_dog_path(dog), class: "btn btn-sm text-primary border-primary me-2 mb-2" do %>
+                <i class="fas fa-edit"></i> Edit
+              <% end %>
+              <%= button_to dog_path(dog), method: :delete, data: { turbo_confirm: "Are you sure you want to delete this dog?" }, class: "btn btn-sm text-danger border-danger mb-2" do %>
+                <i class="fas fa-trash-alt"></i> Delete
+              <% end %>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
 
+    <div class="booking-wrap col-6">
+      <div class="booking">
+        <h2>Bookings</h2>
+        <% if @bookings.any? %>
+          <h3>Pending Bookings</h3>
+          <% @bookings.select { |b| b.status == 'pending' && b.dog.user == current_user }.each do |booking| %>
+            <li class="list-group-item">
+              Dog: <%= link_to booking.dog.name, dog_path(booking.dog) %>
+              <br>
+              Requester: <%= booking.user.email %>
+              <br>
+              Date:
+              <% if booking.start_date && booking.end_date %>
+                <%= booking.start_date.strftime("%B %d, %Y") %> till <%= booking.end_date.strftime("%B %d, %Y") %>
+              <% else %>
+                Not specified
+              <% end %>
+              <br>
+              <%= button_to "Approve", approve_dog_booking_path(booking.dog, booking), method: :patch, class: "btn btn-success", data: { turbo: false } %>
+              <%= button_to "Reject", dog_booking_path(booking.dog, booking), method: :delete, data: { turbo_confirm: "Are you sure you want to reject this booking?", turbo: false }, class: "btn btn-danger" %>
+            </li>
+          <% end %>
 
+          <h3>All Bookings</h3>
+          <% @bookings.each do |booking| %>
+            <li class="list-group-item <%= booking.status == 'approved' ? 'bg-light-green' : 'bg-light-orange' %>">
+              Dog: <%= link_to booking.dog.name, dog_path(booking.dog) %>
+              <br>
+              Status: <%= booking.status.capitalize %>
+              <br>
+              Date:
+              <% if booking.start_date && booking.end_date %>
+                <%= booking.start_date.strftime("%B %d, %Y") %> till <%= booking.end_date.strftime("%B %d, %Y") %>
+              <% else %>
+                Not specified
+              <% end %>
+              <br>
+              <%= button_to "Delete Booking", dog_booking_path(booking.dog, booking), method: :delete, data: { turbo_confirm: "Are you sure you want to delete this booking?" }, class: "btn btn-danger" %>
+            </li>
+          <% end %>
+        <% else %>
+          <p>No bookings available.</p>
+        <% end %>
+      </div>
+    </div>
   </div>
+</div>
