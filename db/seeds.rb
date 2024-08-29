@@ -60,7 +60,7 @@ Dog.create!(
   breed: "Pekingese",
   age: 2,
   bio: "Introducing Luna, the sweetest cuddle buddy.",
-  user: su,
+  user: manfred,
   image: Rails.root.join('app/assets/images/pekingese.jpeg').open
 )
 
@@ -78,7 +78,7 @@ Dog.create!(
   breed: "Pug",
   age: 6,
   bio: "Meet Buddy, a tail-wagging ball of energy.",
-  user: su,
+  user: manfred,
   image: Rails.root.join('app/assets/images/pug.png').open
 )
 
@@ -96,7 +96,7 @@ Dog.create!(
   breed: "Shepherd",
   age: 5,
   bio: "This is Shepherd, the little pup with a big personality.",
-  user: su,
+  user: manfred,
   image: Rails.root.join('app/assets/images/shepherd.jpg').open
 )
 
