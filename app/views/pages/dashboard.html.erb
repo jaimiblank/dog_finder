@@ -17,7 +17,7 @@
           <% if dog.image.attached? %>
             <%= image_tag dog.image, class: "dog-photo" %>
           <% else %>
-            <%= image_tag "default_dog.jpg", class: "dog-photo" %>
+            <%= image_tag "dog.png", class: "dog-photo" %>
           <% end %>
         <%end%>
 
@@ -32,7 +32,7 @@
             <li class="list-group-item" id="test">
               Dog: <%= link_to booking.dog.name, dog_path(booking.dog) %>
               <br>
-              Date: <%= booking.start_date.strftime("%B %d, %Y") %> till <%= booking.end_date.strftime("%B %d, %Y") %>
+              Date: <%= booking.start_date("%B %d, %Y") %> till <%= booking.end_date("%B %d, %Y") %>
               <br>
               Days: <%= (booking.end_date - booking.start_date).to_i %>
             </li>
