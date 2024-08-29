@@ -11,9 +11,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <%# <%= javascript_include_tag 'flatpickr' %>
   </head>
-
-
   <body>
+   <% flash.each do |type, message| %>
+      <div class="alert alert-<%= type == 'notice' ? 'success' : 'danger' %>">
+        <%= message %>
+      </div>
+    <% end %>
+
+
   <div class="wrapper">
 
     <%= render "shared/navbar" %>
