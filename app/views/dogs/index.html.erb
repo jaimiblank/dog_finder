@@ -2,34 +2,35 @@
   <div class="text-center mb-4">
     <%= link_to "Add your 🐶", new_dog_path, class: "btn btn-orange btn-lg" %>
   </div>
-
-  <div class="table-responsive">
-    <table class="table table-striped">
-      <thead class="thead-dark">
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Breed</th>
-          <th>Age</th>
-          <th>Bio</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @dogs.each do |dog| %>
-          <tr>
-            <td><%= dog.id %></td>
-            <td><%= dog.name %></td>
-            <td><%= dog.breed %></td>
-            <td><%= dog.age %></td>
-            <td><%= dog.bio %></td>
-            <td>
-              <%= link_to 'Show', dog_path(dog), class: 'btn btn-orange' %>
-              <%# <%= link_to 'Edit', edit_dog_path(dog), class: 'btn btn-warning' %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+<div class="d-flex justify-content-end">
+  <%= link_to "Add new 🐾", new_dog_path, class: "btn btn-info" %>
 </div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Breed</th>
+      <th>Age</th>
+      <th>Bio</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @dogs.each do |dog| %>
+      <tr>
+        <td><%= image_tag dog.image, class: "avatar", alt: "#{dog.name}'s avatar" if dog.image.attached? %></td>
+        <td><%= dog.name %></td>
+        <td><%= dog.breed %></td>
+        <td><%= dog.age %></td>
+        <td><%= dog.bio %></td>
+
+        <td>
+          <%= link_to 'Show', dog_path(dog), class: 'btn btn-info' %>
+          <%# <%= link_to 'Edit', edit_dog_path(dog), class: 'btn btn-warning' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
