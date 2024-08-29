@@ -18,24 +18,54 @@
             <% if dog.image.attached? %>
               <%= image_tag dog.image, class: "dog-photo" %>
             <% else %>
-              <%= image_tag "default_dog.jpg", class: "dog-photo" %>
+              <%= image_tag "dog.png", class: "dog-photo" %>
             <% end %>
           <%end%>
+
 
         </div>
       </div>
 
       <div class="booking-wrap col-6">
         <div class="booking">
-        <h2>Bookings</h2>
+          <h2>Bookings</h2>
           <% if @bookings.any? %>
-            <% @bookings.each do |booking| %>
-              <li class="list-group-item" id="test">
+            <h3>Pending Bookings</h3>
+            <% @bookings.select { |b| b.status == 'pending' && b.dog.user == current_user }.each do |booking| %>
+              <li class="list-group-item">
                 Dog: <%= link_to booking.dog.name, dog_path(booking.dog) %>
                 <br>
-                Date: <%= booking.start_date.strftime("%B %d, %Y") %> till <%= booking.end_date.strftime("%B %d, %Y") %>
+                Requester: <%= booking.user.email %>
                 <br>
-                Days: <%= (booking.end_date - booking.start_date).to_i %>
+                Date:
+                <% if booking.start_date && booking.end_date %>
+                  <%= booking.start_date.strftime("%B %d, %Y") %> till <%= booking.end_date.strftime("%B %d, %Y") %>
+                <% else %>
+                  Not specified
+                <% end %>
+                <br>
+                <%# Days: <%= (booking.end_date - booking.start_date).to_i %>
+                <br>
+                <%= button_to "Approve", approve_dog_booking_path(booking.dog, booking), method: :patch, class: "btn btn-success", data: { turbo: false } %>
+                <%= button_to "Reject", dog_booking_path(booking.dog, booking), method: :delete, data: { turbo_confirm: "Are you sure you want to reject this booking?", turbo: false }, class: "btn btn-danger" %>
+              </li>
+            <% end %>
+
+            <h3>All Bookings</h3>
+            <% @bookings.each do |booking| %>
+              <li class="list-group-item">
+                Dog: <%= link_to booking.dog.name, dog_path(booking.dog) %>
+                <br>
+                Status: <%= booking.status.capitalize %>
+                <br>
+                Date:
+                <% if booking.start_date && booking.end_date %>
+                  <%= booking.start_date.strftime("%B %d, %Y") %> till <%= booking.end_date.strftime("%B %d, %Y") %>
+                <% else %>
+                  Not specified
+                <% end %>
+                <br>
+                <%# Days: <%= (booking.end_date - booking.start_date).to_i %>
               </li>
             <% end %>
           <% else %>
