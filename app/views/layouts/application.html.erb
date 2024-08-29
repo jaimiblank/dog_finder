@@ -9,11 +9,17 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <%# <%= javascript_include_tag 'flatpickr' %> 
+    <%# <%= javascript_include_tag 'flatpickr' %>
   </head>
 
 
   <body>
+   <% if flash[:notice] %>
+      <div class="alert alert-success">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
   <div class="wrapper">
 
     <%= render "shared/navbar" %>
@@ -21,6 +27,7 @@
     <% if user_signed_in? %>
     <%= render 'shared/banner'%>
     <%end%>
+
    <%= yield %>
    <%= render "shared/footer" %>
   </div>
