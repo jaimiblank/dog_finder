@@ -17,16 +17,20 @@ class DogsController < ApplicationController
     @dog = Dog.new(dog_params)
     @dog.user = current_user
     if @dog.save
-      redirect_to dog_path(@dog)
+      redirect_to dashboard_path, notice: 'Dog profile was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
   end
 
+  def edit
+    @dog = Dog.find(params[:id])
+  end
+
   def destroy
     @dog = Dog.find(params[:id])
     @dog.destroy
-    redirect_to dogs_path
+    redirect_to dashboard_path, notice: 'Dog was successfully deleted.'
   end
 
   def image
