@@ -14,6 +14,12 @@
 
 
   <body>
+   <% if flash[:notice] %>
+      <div class="alert alert-success">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
   <div class="wrapper">
 
     <%= render "shared/navbar" %>
@@ -21,6 +27,7 @@
     <% if user_signed_in? %>
     <%= render 'shared/banner'%>
     <%end%>
+
    <%= yield %>
    <%= render "shared/footer" %>
   </div>
