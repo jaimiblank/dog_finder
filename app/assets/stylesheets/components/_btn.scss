@@ -1,0 +1,80 @@
+// Define the color variable for btn-orange
+$btn-orange-color: // Define the color variable for btn-orange
+$btn-orange-color: #f39c12; // Example orange color
+
+// Base button styling
+.btn {
+  background-color: $btn-color; // This should be a general button color if you have one
+  color: white; // Default text color
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+
+  &:hover {
+    background-color: darken($btn-color, 10%); // Darker shade on hover
+  }
+
+  &:active {
+    background-color: lighten($btn-color, 10%); // Lighter shade on click
+  }
+}
+
+// Custom button styling for btn-orange
+.btn-orange {
+  background-color: $btn-orange-color;
+
+  &:hover {
+    background-color: darken($btn-orange-color, 10%);
+  }
+
+  &:active {
+    background-color: lighten($btn-orange-color, 10%);
+  }
+}
+
+// You can also define btn-lg if needed
+.btn-lg {
+  padding: 15px 30px; // Example of larger button
+  font-size: 18px; // Example of larger text size
+}
+ // Example orange color
+
+// Base button styling
+.btn {
+  background-color: $btn-color; // This should be a general button color if you have one
+  color: white; // Default text color
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+
+  &:hover {
+    background-color: darken($btn-color, 10%); // Darker shade on hover
+  }
+
+  &:active {
+    background-color: lighten($btn-color, 10%); // Lighter shade on click
+  }
+}
+
+// Custom button styling for btn-orange
+.btn-orange {
+  background-color: $btn-orange-color;
+
+  &:hover {
+    background-color: darken($btn-orange-color, 10%);
+  }
+
+  &:active {
+    background-color: lighten($btn-orange-color, 10%);
+  }
+}
+
+// You can also define btn-lg if needed
+.btn-lg {
+  padding: 15px 30px; // Example of larger button
+  font-size: 18px; // Example of larger text size
+}
