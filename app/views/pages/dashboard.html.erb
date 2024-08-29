@@ -1,0 +1,48 @@
+<div class="row wrapper">
+
+    <div class="dashboard-nav">
+    <%= link_to "Add your dog", new_dog_path, class: "btn btn-info" %>
+    <%= link_to 'Show the dogs', dogs_path, class: 'btn btn-info' %>
+    </div>
+
+    <div class="dogs-wrap">
+      <h2>My Dogs</h2>
+      <div class="dog">
+        <% @dogs.each do |dog|%>
+        <%= link_to dog.name, dog%>
+        <%= dog.breed %>
+        <%= dog.age %>
+        <%= dog.bio %>
+
+          <% if dog.image.attached? %>
+            <%= image_tag dog.image, class: "dog-photo" %>
+          <% else %>
+            <%= image_tag "default_dog.jpg", class: "dog-photo" %>
+          <% end %>
+        <%end%>
+
+      </div>
+    </div>
+
+    <div class="booking-wrap">
+      <div class="booking">
+      <h2>Bookings</h2>
+        <% if @bookings.any? %>
+          <% @bookings.each do |booking| %>
+            <li class="list-group-item" id="test">
+              Dog: <%= link_to booking.dog.name, dog_path(booking.dog) %>
+              <br>
+              Date: <%= booking.start_date.strftime("%B %d, %Y") %> till <%= booking.end_date.strftime("%B %d, %Y") %>
+              <br>
+              Days: <%= (booking.end_date - booking.start_date).to_i %>
+            </li>
+          <% end %>
+        <% else %>
+          <p>No bookings available.</p>
+        <% end %>
+      </div>
+    </div>
+
+
+
+  </div>
