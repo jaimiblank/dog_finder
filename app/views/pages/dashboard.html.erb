@@ -20,9 +20,9 @@
               <%= dog.age %>
               <%= dog.bio %>
               <% if dog.image.attached? %>
-                <%= image_tag dog.image, class: "dog-photo img-fluid rounded mb-3" %>
+                <%= cl_image_tag dog.image.key, class: "dog-photo img-fluid rounded mb-3" %>
               <% else %>
-                <%= image_tag "dogfoot.png", class: "dog-photo img-fluid rounded mb-3" %>
+                <%= cl_image_tag "https://res.cloudinary.com/dqdmlrr95/image/upload/v1725017523/dogfoot_gkjo1x.png", class: "dog-photo img-fluid rounded mb-3" %>
               <% end %>
             </div>
 
@@ -93,6 +93,10 @@
           <% else %>
             <p>No bookings available.</p>
           <% end %>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5044f2eaad3848ed5ad244480fa472c3d0ac2b95
       </div>
     </div>
   </div>
