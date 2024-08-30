@@ -8,15 +8,17 @@
       <h2>My Dogs</h2>
       <% @dogs.each do |dog| %>
         <div class="dog-item">
+
+          <% if dog.image.attached? %>
+            <%= cl_image_tag dog.image.key, class: "dog-photo img-fluid rounded mb-3 w-100" %>
+          <% else %>
+            <%= cl_image_tag "https://res.cloudinary.com/dqdmlrr95/image/upload/v1725017523/dogfoot_gkjo1x.png", class: "dog-photo img-fluid rounded mb-3" %>
+          <% end %>
           <%= link_to dog.name, dog, class: "text-danger" %>
           <%= dog.breed %>
           <%= dog.age %>
           <%= dog.bio %>
-          <% if dog.image.attached? %>
-            <%= cl_image_tag dog.image.key, class: "dog-photo img-fluid rounded mb-3" %>
-          <% else %>
-            <%= cl_image_tag "https://res.cloudinary.com/dqdmlrr95/image/upload/v1725017523/dogfoot_gkjo1x.png", class: "dog-photo img-fluid rounded mb-3" %>
-          <% end %>
+
           <div class="mt-2">
             <%= link_to edit_dog_path(dog), class: "btn btn-sm text-primary border-primary me-2 mb-2" do %>
               <i class="fas fa-edit"></i> Edit
