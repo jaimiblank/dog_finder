@@ -1,34 +1,49 @@
-<div class="container">
-  <div class="text-center mb-4">
-    <%= link_to "Add your 🐶", new_dog_path, class: "btn btn-orange btn-lg'" %>
-  </div>
-
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Breed</th>
-      <th>Age</th>
-      <th>Bio</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
+<div class="container mt-4">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
     <% @dogs.each do |dog| %>
-      <tr>
-        <td><%= cl_image_tag dog.image.key, class: "avatar", alt: "#{dog.name}'s avatar" if dog.image.attached? %></td>
-        <td><%= dog.name %></td>
-        <td><%= dog.breed %></td>
-        <td><%= dog.age %></td>
-        <td><%= dog.bio %></td>
-
-        <td>
-          <%= link_to 'Show', dog_path(dog), class: 'btn btn-orange btn-lg' %>
-          <%# <%= link_to 'Edit', edit_dog_path(dog), class: 'btn btn-warning' %>
-        </td>
-      </tr>
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <% if dog.image.attached? %>
+                <%= cl_image_tag dog.image.key, class: "rounded-circle me-3", alt: "#{dog.name}'s avatar", style: "width: 60px; height: 60px; object-fit: cover;" %>
+              <% else %>
+                <div class="rounded-circle bg-light d-flex align-items-center justify-content-center me-3" style="width: 60px; height: 60px;">🐾</div>
+              <% end %>
+              <h5 class="card-title mb-0"><%= dog.name %></h5>
+            </div>
+            <p class="card-text"><strong>Breed:</strong> <%= dog.breed %></p>
+            <p class="card-text"><strong>Age:</strong> <%= dog.age %> years</p>
+            <p class="card-text"><%= truncate(dog.bio, length: 100) %></p>
+          </div>
+          <div class="card-footer bg-transparent border-top-0 text-center py-3">
+            <%= link_to 'Woof Hello!', dog_path(dog), class: 'btn btn-danger btn-sm rounded-pill px-4 py-2' %>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
+
+<style>
+  .card {
+    transition: all 0.3s ease;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(255, 127, 80, 0.2);
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 127, 80, 0.4);
+  }
+  .btn-danger {
+    background-color: #FF6347;
+    border-color: #FF6347;
+    transition: all 0.3s ease;
+  }
+  .btn-danger:hover {
+    background-color: #FF4500;
+    border-color: #FF4500;
+    transform: scale(1.05);
+  }
+</style>
