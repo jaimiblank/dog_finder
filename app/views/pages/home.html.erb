@@ -19,7 +19,7 @@
           <% end %>
         <% else %>
           <% if user_signed_in? %>
-            <%= image_tag dog.image, size: "300x200", class: "img-fluid rounded shadow" %>
+            <%= cl_image_tag dog.image.key, size: "300x200", class: "img-fluid rounded shadow" %>
           <% end %>
        <p class="mt-2 font-weight-bold text-red-underline"><%= dog.name %></p>
 

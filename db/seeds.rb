@@ -1,3 +1,5 @@
+require "open-uri"
+
 puts "Dogs DB will be deleted..."
 
 Dog.destroy_all
@@ -10,116 +12,119 @@ puts "Creating of 2 Users in DB done..."
 
 puts "Creating Dogs DB..."
 
-Dog.create!(
+# def upload_image(file_path)
+#   Cloudinary::Uploader.upload(Rails.root.join(file_path))
+# end
+
+newdog = Dog.new(
   name: "Max and Moritz",
   breed: "Beagle",
   age: 1,
   bio: "Here you find Max and Moritz, two one year old beagle puppies",
-  user: manfred,
-  image: Rails.root.join('app/assets/images/beagle.jpg').open
+  user: manfred
 )
+image_file = URI.open("https://res.cloudinary.com/dqdmlrr95/image/upload/v1725014281/development/f03ns3wsh3fvmfjunifrippxslec.jpg")
+newdog.image.attach(io: image_file, filename: "beagle.jpg", content_type: "image/jpg")
+newdog.save!
 
-Dog.create!(
+newdog = Dog.create!(
   name: "Alice",
   breed: "Akita",
   age: 4,
   bio: "Alive, the most playful pup you'll ever see!",
-  user: manfred,
-  # image: Rails.root.join('app/assets/images/akita.jpg').open
+  user: manfred
 )
+image_file = URI.open("https://res.cloudinary.com/dqdmlrr95/image/upload/v1725014574/akita_kw4h7y.jpg")
+newdog.image.attach(io: image_file, filename: "akita.jpg", content_type: "image/jpg")
+newdog.save!
 
-Dog.create!(
+newdog = Dog.create!(
   name: "Sausege",
   breed: "Dackel",
   age: 2,
   bio: "Sausege, a loyal friend with a wagging tail.",
-  user: manfred,
-  image: Rails.root.join('app/assets/images/dackel.jpeg').open
+  user: manfred
 )
+image_file = URI.open("https://res.cloudinary.com/dqdmlrr95/image/upload/v1725014573/dackel_kalxa3.jpg")
+newdog.image.attach(io: image_file, filename: "dackel.jpg", content_type: "image/jpg")
+newdog.save!
 
-Dog.create!(
+
+newdog = Dog.create!(
   name: "Temper",
   breed: "Husky",
   age: 1,
   bio: "Say hello to Temper, a bundle of furry joy.",
-  user: manfred,
-  image: Rails.root.join('app/assets/images/husky.jpg').open
+  user: manfred
 )
+image_file = URI.open("https://res.cloudinary.com/dqdmlrr95/image/upload/v1725014573/husky_pt5vtr.jpg")
+newdog.image.attach(io: image_file, filename: "husky.jpg", content_type: "image/jpg")
+newdog.save!
 
-Dog.create!(
+newdog = Dog.create!(
   name: "Bill",
   breed: "Labrador",
   age: 3,
   bio: "Bill always ready for a game of fetch",
-  user: manfred,
-  image: Rails.root.join('app/assets/images/labrador.jpg').open
+  user: manfred
 )
+image_file = URI.open("https://res.cloudinary.com/dqdmlrr95/image/upload/v1725014574/labrador_wcf54k.jpg")
+newdog.image.attach(io: image_file, filename: "labrador.jpg", content_type: "image/jpg")
+newdog.save!
 
-Dog.create!(
+newdog = Dog.create!(
   name: "Luna",
   breed: "Pekingese",
   age: 2,
   bio: "Introducing Luna, the sweetest cuddle buddy.",
-  user: manfred,
-  image: Rails.root.join('app/assets/images/pekingese.jpeg').open
+  user: manfred
 )
+image_file = URI.open("https://res.cloudinary.com/dqdmlrr95/image/upload/v1725014575/pekingese_p5roim.jpg")
+newdog.image.attach(io: image_file, filename: "pekingese.jpg", content_type: "image/jpg")
+newdog.save!
 
-Dog.create!(
+newdog = Dog.create!(
   name: "DMX",
   breed: "Pitbull",
   age: 3,
   bio: "This is DMX, a curious explorer with a big heart.",
-  user: su,
-  image: Rails.root.join('app/assets/images/pitbull.jpg').open
+  user: su
 )
+image_file = URI.open("https://res.cloudinary.com/dqdmlrr95/image/upload/v1725014574/pitbull_x40t8r.jpg")
+newdog.image.attach(io: image_file, filename: "pitbull.jpg", content_type: "image/jpg")
+newdog.save!
 
-Dog.create!(
+newdog = Dog.create!(
   name: "Buddy",
   breed: "Pug",
   age: 6,
   bio: "Meet Buddy, a tail-wagging ball of energy.",
-  user: manfred,
-  image: Rails.root.join('app/assets/images/pug.png').open
+  user: manfred
 )
+image_file = URI.open("https://res.cloudinary.com/dqdmlrr95/image/upload/v1725014574/pug_w3q4br.png")
+newdog.image.attach(io: image_file, filename: "pug.png", content_type: "image/png")
+newdog.save!
 
-Dog.create!(
+newdog = Dog.create!(
   name: "Stoner",
   breed: "Puli",
   age: 4,
   bio: "Here's Stoner, the gentle soul with puppy eyes.",
-  user: su,
-  image: Rails.root.join('app/assets/images/puli.jpeg').open
+  user: su
 )
+image_file = URI.open("https://res.cloudinary.com/dqdmlrr95/image/upload/v1725014578/puli_ukohur.jpg")
+newdog.image.attach(io: image_file, filename: "puli.jpg", content_type: "image/jpg")
+newdog.save!
 
-Dog.create!(
+newdog = Dog.create!(
   name: "G",
   breed: "Shepherd",
   age: 5,
   bio: "This is Shepherd, the little pup with a big personality.",
-  user: manfred,
-  image: Rails.root.join('app/assets/images/shepherd.jpg').open
+  user: manfred
 )
-
-
-# beagle.images.attach(io: File.open(Rails.root.join('app/assets/images/beagle.jpg')),
-# filename: 'beagle.jpg')
-# akita.images.attach(io: File.open(Rails.root.join('app/assets/images/akita.jpg')),
-# filename: 'akita.jpg')
-# dackel.images.attach(io: File.open(Rails.root.join('app/assets/images/dackel.jpeg')),
-# filename: 'dackel.jpeg')
-# husky.images.attach(io: File.open(Rails.root.join('app/assets/images/husky.jpg')),
-# filename: 'husky.jpg')
-# labrador.images.attach(io: File.open(Rails.root.join('app/assets/images/labrador.jpg')),
-# filename: 'labrador.jpg')
-# pekingese.images.attach(io: File.open(Rails.root.join('app/assets/images/pekingese.jpeg')),
-# filename: 'pekingese.jpeg')
-# pitbull.images.attach(io: File.open(Rails.root.join('app/assets/images/pitbull.jpg')),
-# filename: 'pitbull.jpg')
-# pug.images.attach(io: File.open(Rails.root.join('app/assets/images/pug.png')),
-# filename: 'pug.png')
-# puli.images.attach(io: File.open(Rails.root.join('app/assets/images/puli.jpeg')),
-# filename: 'puli.jpeg')
-# shepherd.images.attach(io: File.open(Rails.root.join('app/assets/images/shepherd.jpg')),
-# filename: 'shepherd.jpg')
+image_file = URI.open("https://res.cloudinary.com/dqdmlrr95/image/upload/v1725014574/shepherd_f9ae7m.jpg")
+newdog.image.attach(io: image_file, filename: "shepherd.jpg", content_type: "image/jpg")
+newdog.save!
 
 puts "Creating of 10 Dogs in DB done..."
