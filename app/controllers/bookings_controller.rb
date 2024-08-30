@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
     @booking.dog = @dog
     @booking.user = current_user
     @booking.status = 'pending'
-    if @booking.save
+    if @booking.save!
       redirect_to dashboard_path, notice: 'Booking request for submitted and waiting for approval.'
     else
       render :new, status: :unprocessable_entity
