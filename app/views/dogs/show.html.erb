@@ -20,7 +20,14 @@
       <p class="lead">Bio: <%= @dog.bio %></p>
       <p class="lead">Owner: <%= @dog.user.bio %></p>
 
-    <%= link_to 'Book', new_dog_booking_path(@dog), class: 'btn btn-info btn-lg' %>
+    <% if user_signed_in? %>
+      <%= link_to 'Book', new_dog_booking_path(@dog), class: 'btn btn-info btn-lg' %>
+    <% end %>
+
+     <% if not user_signed_in? %>
+      <%= link_to '* Please sign in to see booking options *', new_user_session_path, class: 'btn btn-info btn-lg' %>
+    <% end %>
+
 
     </div>
   </div>

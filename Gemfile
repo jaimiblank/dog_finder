@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 ruby "3.1.2"
-
+gem "cloudinary"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.4"
 
@@ -25,7 +25,6 @@ gem "stimulus-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
-
 gem "devise"
 
 # Use Redis adapter to run Action Cable in production
