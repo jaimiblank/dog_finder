@@ -1,12 +1,38 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow">
+        <div class="card-body">
+          <h2 class="card-title text-center mb-4">Create Your Dog's Profile</h2>
+          <p class="text-muted text-center mb-4">Help your furry friend find new human companions!</p>
 
-<div class = "centered-container ">
-  <h3>Create a profile for your dog to help him find new human friends</h3>
-  <%= simple_form_for @dog do |f| %>
-    <%= f.input :name, placeholder: 'Spot', label: 'Dog Name' %>
-    <%= f.input :breed, label: 'Breed' %>
-    <%= f.input :age, label: 'Age' %>
-    <%= f.input :bio, label: 'Biography' %>
-    <%= f.input :image, as: :file, label: 'Dog Photo' %>
-    <%= f.submit class: 'btn btn-flat' %>
-  <% end %>
+          <%= simple_form_for @dog do |f| %>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <%= f.input :name, placeholder: 'e.g., Buddy', label: 'Dog Name', input_html: { class: 'form-control-lg' } %>
+              </div>
+              <div class="col-md-6 mb-3">
+                <%= f.input :breed, label: 'Breed', input_html: { class: 'form-control-lg' } %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <%= f.input :age, label: 'Age', input_html: { class: 'form-control-lg' } %>
+              </div>
+              <div class="col-md-6 mb-3">
+                <%= f.input :image, as: :file, label: 'Dog Photo', input_html: { class: 'form-control-lg' } %>
+              </div>
+            </div>
+
+            <%= f.input :bio, label: 'Biography', input_html: { rows: 4, class: 'form-control-lg' } %>
+
+            <div class="text-center mt-4">
+              <%= f.submit 'Create Profile', class: 'btn btn-lg px-5', style: 'background-color: #ff3838; border-color: #ff3838; color: white;' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

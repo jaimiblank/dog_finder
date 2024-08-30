@@ -1,7 +1,7 @@
 <div class="puppy-wrap">
   <div class="text-center">
-    <%= link_to "Add your dog", new_dog_path, class: "btn btn-orange btn-lg mx-3" %>
-    <%= link_to 'Show the dogs', dogs_path, class: 'btn btn-orange btn-lg' %>
+    <%= link_to "Add your dog", new_dog_path, class: "btn btn-danger btn-lg mx-3 rounded-pill text-white" %>
+    <%= link_to 'Show the dogs', dogs_path, class: 'btn btn-danger btn-lg rounded-pill text-white' %>
   </div>
   <div class="text-center mb-4">
     <h2>Here are some of our Friends you can find here:</h2>
@@ -14,13 +14,15 @@
             <% if dog.image.attached? %>
               <%= image_tag dog.image, size: "300x200", class: "img-fluid rounded shadow" %>
             <% end %>
-            <p class="mt-2 font-weight-bold"><%= dog.name %></p>
+          <p class="mt-2 font-weight-bold text-red-underline"><%= dog.name %></p>
+
           <% end %>
         <% else %>
           <% if user_signed_in? %>
             <%= image_tag dog.image, size: "300x200", class: "img-fluid rounded shadow" %>
           <% end %>
-          <p class="mt-2 font-weight-bold"><%= dog.name %></p>
+       <p class="mt-2 font-weight-bold text-red-underline"><%= dog.name %></p>
+
         <% end %>
       </div>
     <% end %>

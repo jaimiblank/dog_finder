@@ -4,14 +4,18 @@
   <%# ... existing code ... %>
   <div class="row justify-content-center">
     <div class="col-md-6">
-      <div class="card shadow">
-        <div class="card-body">
-          <h2 class="card-title text-center mb-4">Book <%= @dog.name %></h2>
+      <div class="card shadow-lg border-0 rounded-lg">
+        <div class="card-body p-5">
+          <h2 class="card-title text-center mb-4" style="color: #ff3838;">Book Your Date with <%= @dog.name %></h2>
 
           <%= simple_form_for [@dog, @booking] do |f| %>
-            <%= f.input :start_date, as: :string, input_html: { class: "datepicker", data: { controller: "datepicker" } } %>
-            <%= f.input :end_date, as: :string, input_html: { class: "datepicker", data: { controller: "datepicker" } } %>
-            <%= f.submit "Book", class: "btn btn-primary w-100 mt-3" %>
+            <div class="form-group mb-4">
+              <%= f.input :start_date, as: :string, label: 'Start Date', input_html: { class: "datepicker form-control-lg", data: { controller: "datepicker" } }, wrapper_html: { class: 'mb-3' } %>
+            </div>
+            <div class="form-group mb-4">
+              <%= f.input :end_date, as: :string, label: 'End Date', input_html: { class: "datepicker form-control-lg", data: { controller: "datepicker" } }, wrapper_html: { class: 'mb-3' } %>
+            </div>
+            <%= f.submit "Book Now", class: "btn btn-lg w-100 mt-4 text-uppercase font-weight-bold text-white", style: "background-color: #ff3838; border-color: #FF6B6B;" %>
           <% end %>
         </div>
       </div>
