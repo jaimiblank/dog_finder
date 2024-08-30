@@ -32,6 +32,10 @@
       <div class="booking-wrap col-6">
         <div class="booking">
           <h2>Bookings</h2>
+          <div class="status-legend">
+            <span class="status-dot bg-light-orange"></span> Booking Pending / Waiting for confirmation <br>
+            <span class="status-dot bg-light-green"></span> Booking Approved
+          </div>
           <% if @bookings.any? %>
             <h3>Pending Bookings</h3>
             <% @bookings.select { |b| b.status == 'pending' && b.dog.user == current_user }.each do |booking| %>
@@ -53,6 +57,8 @@
                 <%= button_to "Reject", dog_booking_path(booking.dog, booking), method: :delete, data: { turbo_confirm: "Are you sure you want to reject this booking?", turbo: false }, class: "btn btn-danger" %>
               </li>
             <% end %>
+
+            <div class="my-5"></div> <!-- Add this line for spacing -->
 
             <h3>All Bookings</h3>
             <% @bookings.each do |booking| %>

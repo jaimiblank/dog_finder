@@ -103,3 +103,18 @@
 .bg-light-green {
   background-color: #C8E6C9!important;
 }
+
+.status-legend {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 15px;
+
+  .status-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+  }
+}
