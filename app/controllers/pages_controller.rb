@@ -6,7 +6,8 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @bookings = current_user.bookings
+    @bookings_as_customer = current_user.bookings
+    @bookings_as_owner = Booking.where(dog: current_user.dogs)
     @dogs = current_user.dogs
   end
 end

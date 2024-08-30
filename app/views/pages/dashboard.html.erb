@@ -47,9 +47,9 @@
             <span class="status-dot bg-light-orange"></span> Booking Pending / Waiting for confirmation <br>
             <span class="status-dot bg-light-green"></span> Booking Approved
           </div>
-          <% if @bookings.any? %>
-            <h3>Pending Bookings</h3>
-            <% @bookings.select { |b| b.status == 'pending' && b.dog.user == current_user }.each do |booking| %>
+          <% if @bookings_as_owner.any? %>
+            <h3>My Dog's Bookings</h3>
+            <% @bookings_as_owner.select { |b| b.status == 'pending' }.each do |booking| %>
               <li class="list-group-item">
                 Dog: <%= link_to booking.dog.name, dog_path(booking.dog) %>
                 <br>
@@ -71,8 +71,8 @@
 
             <div class="my-5"></div> <!-- Add this line for spacing -->
 
-            <h3>All Bookings</h3>
-            <% @bookings.each do |booking| %>
+            <h3>My Bookings</h3>
+            <% @bookings_as_customer.each do |booking| %>
               <li class="list-group-item <%= booking.status == 'approved' ? 'bg-light-green' : 'bg-light-orange' %>">
                 Dog: <%= link_to booking.dog.name, dog_path(booking.dog) %>
                 <br>
@@ -93,9 +93,6 @@
           <% else %>
             <p>No bookings available.</p>
           <% end %>
-        <% else %>
-          <p>No bookings available.</p>
-        <% end %>
       </div>
     </div>
   </div>
