@@ -8,7 +8,7 @@
       <h2>My Dogs</h2>
       <% @dogs.each do |dog| %>
         <div class="dog-item">
-          <%= link_to dog.name, dog %>
+          <%= link_to dog.name, dog, class: "text-danger" %>
           <%= dog.breed %>
           <%= dog.age %>
           <%= dog.bio %>
@@ -38,7 +38,7 @@
         <h3>My Dog's Bookings</h3>
         <% @bookings_as_owner.select { |b| b.status == 'pending' }.each do |booking| %>
           <li class="list-group-item">
-            Dog: <%= link_to booking.dog.name, dog_path(booking.dog) %>
+            Dog: <%= link_to booking.dog.name, dog_path(booking.dog), class: "text-danger" %>
             <br>
             Requester: <%= booking.user.email %>
             <br>
@@ -49,8 +49,8 @@
               Not specified
             <% end %>
             <br>
-            <%= button_to "Approve", approve_dog_booking_path(booking.dog, booking), method: :patch, class: "btn btn-success", data: { turbo: false } %>
-            <%= button_to "Reject", dog_booking_path(booking.dog, booking), method: :delete, data: { turbo_confirm: "Are you sure you want to reject this booking?", turbo: false }, class: "btn btn-danger" %>
+            <%= button_to "Approve", approve_dog_booking_path(booking.dog, booking), method: :patch, class: "btn btn-success btn-sm rounded-pill me-2 mb-2", data: { turbo: false } %>
+            <%= button_to "Reject", dog_booking_path(booking.dog, booking), method: :delete, data: { turbo_confirm: "Are you sure you want to reject this booking?", turbo: false }, class: "btn btn-outline-danger btn-sm rounded-pill mb-2" %>
           </li>
         <% end %>
         <div class="my-5"></div>
