@@ -23,10 +23,10 @@ newdog = Dog.new(
   bio: "Here you find Max and Moritz, two one year old beagle puppies",
   user: manfred
 )
-image_file = URI.open("https://res.cloudinary.com/dqdmlrr95/image/upload/v1725014281/development/f03ns3wsh3fvmfjunifrippxslec.jpg")
+image_file = URI.open("https://cdn.britannica.com/79/232779-050-6B0411D7/German-Shepherd-dog-Alsatian.jpg")
 newdog.image.attach(io: image_file, filename: "beagle.jpg", content_type: "image/jpg")
 newdog.save!
-
+puts "Dog 1 created"
 newdog = Dog.create!(
   name: "Alice",
   breed: "Akita",
@@ -37,7 +37,7 @@ newdog = Dog.create!(
 image_file = URI.open("https://res.cloudinary.com/dqdmlrr95/image/upload/v1725014574/akita_kw4h7y.jpg")
 newdog.image.attach(io: image_file, filename: "akita.jpg", content_type: "image/jpg")
 newdog.save!
-
+puts "Dog 2 created"
 newdog = Dog.create!(
   name: "Sausege",
   breed: "Dackel",
@@ -48,7 +48,7 @@ newdog = Dog.create!(
 image_file = URI.open("https://res.cloudinary.com/dqdmlrr95/image/upload/v1725014573/dackel_kalxa3.jpg")
 newdog.image.attach(io: image_file, filename: "dackel.jpg", content_type: "image/jpg")
 newdog.save!
-
+puts "Dog 3 created"
 
 newdog = Dog.create!(
   name: "Temper",
@@ -60,7 +60,7 @@ newdog = Dog.create!(
 image_file = URI.open("https://res.cloudinary.com/dqdmlrr95/image/upload/v1725014573/husky_pt5vtr.jpg")
 newdog.image.attach(io: image_file, filename: "husky.jpg", content_type: "image/jpg")
 newdog.save!
-
+puts "Dog 4 created"
 newdog = Dog.create!(
   name: "Bill",
   breed: "Labrador",
@@ -71,7 +71,7 @@ newdog = Dog.create!(
 image_file = URI.open("https://res.cloudinary.com/dqdmlrr95/image/upload/v1725014574/labrador_wcf54k.jpg")
 newdog.image.attach(io: image_file, filename: "labrador.jpg", content_type: "image/jpg")
 newdog.save!
-
+puts "Dog 5 created"
 newdog = Dog.create!(
   name: "Luna",
   breed: "Pekingese",
@@ -82,7 +82,7 @@ newdog = Dog.create!(
 image_file = URI.open("https://res.cloudinary.com/dqdmlrr95/image/upload/v1725014575/pekingese_p5roim.jpg")
 newdog.image.attach(io: image_file, filename: "pekingese.jpg", content_type: "image/jpg")
 newdog.save!
-
+puts "Dog 6 created"
 newdog = Dog.create!(
   name: "DMX",
   breed: "Pitbull",
@@ -93,7 +93,7 @@ newdog = Dog.create!(
 image_file = URI.open("https://res.cloudinary.com/dqdmlrr95/image/upload/v1725014574/pitbull_x40t8r.jpg")
 newdog.image.attach(io: image_file, filename: "pitbull.jpg", content_type: "image/jpg")
 newdog.save!
-
+puts "Dog 7 created"
 newdog = Dog.create!(
   name: "Buddy",
   breed: "Pug",
@@ -104,7 +104,7 @@ newdog = Dog.create!(
 image_file = URI.open("https://res.cloudinary.com/dqdmlrr95/image/upload/v1725014574/pug_w3q4br.png")
 newdog.image.attach(io: image_file, filename: "pug.png", content_type: "image/png")
 newdog.save!
-
+puts "Dog 8 created"
 newdog = Dog.create!(
   name: "Stoner",
   breed: "Puli",
@@ -115,7 +115,7 @@ newdog = Dog.create!(
 image_file = URI.open("https://res.cloudinary.com/dqdmlrr95/image/upload/v1725014578/puli_ukohur.jpg")
 newdog.image.attach(io: image_file, filename: "puli.jpg", content_type: "image/jpg")
 newdog.save!
-
+puts "Dog 9 created"
 newdog = Dog.create!(
   name: "G",
   breed: "Shepherd",
@@ -126,5 +126,6 @@ newdog = Dog.create!(
 image_file = URI.open("https://res.cloudinary.com/dqdmlrr95/image/upload/v1725014574/shepherd_f9ae7m.jpg")
 newdog.image.attach(io: image_file, filename: "shepherd.jpg", content_type: "image/jpg")
 newdog.save!
+puts "Dog 10 created"
 
 puts "Creating of 10 Dogs in DB done..."
